@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.ServiceFrame.Model", "Hayaa.ServiceFrame.Model\Hayaa.ServiceFrame.Model.csproj", "{E4ABA299-F98F-44DF-A16C-C4BB2F06AF37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeRepo", "CodeRepo", "{AF5F6764-EC2B-4574-AB36-3CF61216E02B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.CodeRepoService", "Hayaa.CodeRepoService\Hayaa.CodeRepoService.csproj", "{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{E4ABA299-F98F-44DF-A16C-C4BB2F06AF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4ABA299-F98F-44DF-A16C-C4BB2F06AF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4ABA299-F98F-44DF-A16C-C4BB2F06AF37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FA7876E-5470-47C3-96A5-D2BC97DDB2B9} = {AF5F6764-EC2B-4574-AB36-3CF61216E02B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}
