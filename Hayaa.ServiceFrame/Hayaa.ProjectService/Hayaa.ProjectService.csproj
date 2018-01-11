@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hayaa.ServiceFrame.Model\Hayaa.ServiceFrame.Model.csproj" />
+  </ItemGroup>
+
 </Project>
