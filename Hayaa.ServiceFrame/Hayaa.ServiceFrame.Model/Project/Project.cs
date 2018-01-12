@@ -9,6 +9,10 @@ namespace Hayaa.ServiceFrame.Model.Project
     public  class Project: BaseData
     {
         /// <summary>
+        /// 项目ID
+        /// </summary>
+        public int ProjectID { set; get; }
+        /// <summary>
         /// 展示名
         /// </summary>
         public String Title { set; get; }
