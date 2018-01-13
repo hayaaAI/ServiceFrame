@@ -1,0 +1,13 @@
+//本地程序配置文件示范文件
+{
+  "SeedServerUrl": "",
+  "LocalConfigDirectoryPath": "",
+  "IsVirtualPath": "",
+  "AppConfigSentinelUrl": "",
+  "TransfersSecurityKey": "",
+  "AppID": "",
+  "AppConfigID": "",
+  "AppConfigFileName": "app.json",
+  "Version": "",
+  "IsRemote": ""
+}

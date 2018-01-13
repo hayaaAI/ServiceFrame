@@ -105,7 +105,7 @@ namespace Hayaa.RemoteConfigClient
            
                 AppConfig localconfig = null;
             //判断配置文件是否已经存在
-            if (File.Exists(seedConfig.LocalConfigDirectoryPath + "/app.Config"))
+            if (File.Exists(seedConfig.LocalConfigDirectoryPath + "/app.json"))
             {
                 localconfig = ReadLocal(seedConfig);
             }
@@ -163,17 +163,18 @@ namespace Hayaa.RemoteConfigClient
             };
             try
             {
-                string baseDirectory = string.Empty;//TODO AppDomain.CurrentDomain.BaseDirectory;//获取根目录路径
-                r=JsonHelper.Deserialize<AppLocalConfig>(File.ReadAllText(baseDirectory + "/seed.config"));//读取根目录下的配置文件
+                string baseDirectory =  AppDomain.CurrentDomain.BaseDirectory;//获取根目录路径
+                r=JsonHelper.Deserialize<AppLocalConfig>(File.ReadAllText(baseDirectory + "/appconfig.json"));//读取根目录下的配置文件
+                if (r.IsVirtualPath)//web系统相对部署根目录获取绝对路径
+                {
+                    r.LocalConfigDirectoryPath =baseDirectory+r.LocalConfigDirectoryPath.Replace("~/","/");
+                }
             }
             catch (Exception ex)
             {
                 r = new AppLocalConfig() { IsVirtualPath = false };
             }
-            if (r.IsVirtualPath)//web系统相对路径则获取绝对路径
-            {
-                //r.LocalConfigDirectoryPath= System.Web.HttpContext.Current.Server.MapPath(r.LocalConfigDirectoryPath);TODO
-            }
+           
             return r;
         }
         public AppConfig GetLocalConfig()

@@ -17,6 +17,7 @@ namespace Hayaa.RemoteConfigClient
                 return g_instance;
             }
         }
+
         /// <summary>
         /// 程序配置初始化
         /// </summary>

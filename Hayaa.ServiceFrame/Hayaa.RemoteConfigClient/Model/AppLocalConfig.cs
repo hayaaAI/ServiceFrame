@@ -20,6 +20,7 @@ namespace Hayaa.RemoteConfigClient.Model
         public string LocalConfigDirectoryPath { set; get; }
         /// <summary>
         /// 存储路径是否相对路径目录
+        /// 需要以~作为开始符
         /// </summary>
         public bool IsVirtualPath { set; get; }
         /// <summary>

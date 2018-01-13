@@ -6,11 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.2" />
-    <PackageReference Include="Hayaa.Common" Version="1.0.0" />
+    <PackageReference Include="Hayaa.Common" Version="1.0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="config\" />
+    <Folder Include="Config\" />
   </ItemGroup>
 
 </Project>
