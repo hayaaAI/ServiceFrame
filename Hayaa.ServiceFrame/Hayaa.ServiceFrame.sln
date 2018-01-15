@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfigClient", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.RemoteService", "Hayaa.RemoteService\Hayaa.RemoteService.csproj", "{31761C68-9061-42E7-B6DF-16F3A031789C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.RemoteService.Core", "Hayaa.RemoteService.Core\Hayaa.RemoteService.Core.csproj", "{694984F8-3BCF-4170-81E3-48CFD3F3854D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{31761C68-9061-42E7-B6DF-16F3A031789C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31761C68-9061-42E7-B6DF-16F3A031789C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31761C68-9061-42E7-B6DF-16F3A031789C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{E3F12592-57E9-4EDB-A6BE-9EB993800057} = {44FFA1D9-6562-4CB3-A07B-E7A2CCA05D37}
 		{AB2C9A1C-B810-4C33-8AD8-FB7AA45C39AB} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 		{31761C68-9061-42E7-B6DF-16F3A031789C} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
+		{694984F8-3BCF-4170-81E3-48CFD3F3854D} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}

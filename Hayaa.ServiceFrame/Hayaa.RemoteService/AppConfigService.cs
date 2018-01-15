@@ -4,7 +4,7 @@ using System;
 namespace Hayaa.RemoteService
 {
     /// <summary>
-    /// 远程配置服务
+    /// App(宿主程序)配置服务
     /// </summary>
     public interface AppConfigService : IBaseService<AppConfig, AppConfigGridSearch>
     {
