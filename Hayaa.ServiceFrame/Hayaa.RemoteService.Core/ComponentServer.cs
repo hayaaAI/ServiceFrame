@@ -5,9 +5,9 @@ using Hayaa.BaseModel;
 
 namespace Hayaa.RemoteService.Core
 {
-    public class ComponentConfigServer : ComponentConfigService
+   public class ComponentServer : ComponentService
     {
-        public FunctionResult<ComponentConfig> Create(ComponentConfig info)
+        public FunctionResult<Component> Create(Component info)
         {
             throw new NotImplementedException();
         }
@@ -17,12 +17,12 @@ namespace Hayaa.RemoteService.Core
             throw new NotImplementedException();
         }
 
-        public GridPager<ComponentConfig> GetPager(GridPagerPamater<ComponentConfigGridSearch> searchParam)
+        public GridPager<Component> GetPager(GridPagerPamater<ComponentGridSearch> searchParam)
         {
             throw new NotImplementedException();
         }
 
-        public FunctionOpenResult<bool> UpdateByID(ComponentConfig info)
+        public FunctionOpenResult<bool> UpdateByID(Component info)
         {
             throw new NotImplementedException();
         }

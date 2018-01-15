@@ -63,7 +63,7 @@ namespace Hayaa.RemoteConfigClient
         /// <typeparam name="T"></typeparam>
         /// <param name="componentID"></param>
         /// <returns></returns>
-        public static FunctionResult<T> GetConfig<T>(int componentID) where T: ComponentConfig
+        public static FunctionResult<T> GetConfig<T>(int componentID) where T: BaseData,new()
         {
             var r = new FunctionResult<T>();
             var config = ProgramDistributedConfig.Instance.GetComponentConfig(componentID);

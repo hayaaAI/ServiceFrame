@@ -61,5 +61,9 @@ namespace Hayaa.RemoteService
         /// </summary>
 
         public string ComponentConfigTitle { get; set; }
+        /// <summary>
+        /// 是否默认配置方案
+        /// </summary>
+        public bool IsDefault { set; get; }
     }
 }

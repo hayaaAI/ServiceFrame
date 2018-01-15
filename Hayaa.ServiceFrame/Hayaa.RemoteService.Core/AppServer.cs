@@ -6,32 +6,33 @@ using Hayaa.RemoteService.DataAccess;
 
 namespace Hayaa.RemoteService.Core
 {
-    public class AppConfigServer : AppConfigService
+    public class AppServer : AppService
     {
-        
-        public FunctionResult<AppConfig> Create(AppConfig info)
+        public FunctionResult<App> Create(App info)
         {
-            var r = new FunctionResult<AppConfig>();
-            int id= AppConfigDal.Add(info);
+            var r = new FunctionResult<App>();
+            int id = AppDal.Add(info);
             if (id > 0)
             {
                 r.Data = info;
-                r.Data.ID = id;
+                r.Data.AppID = id;
             }
             return r;
         }
 
         public FunctionOpenResult<bool> DeleteByID(int ID)
         {
-            throw new NotImplementedException();
+            var r = new FunctionOpenResult<bool>();
+           // r.Data = AppDal.Delete(idList);
+            return r;
         }
 
-        public GridPager<AppConfig> GetPager(GridPagerPamater<AppConfigGridSearch> searchParam)
+        public GridPager<App> GetPager(GridPagerPamater<AppGridSearch> searchParam)
         {
             throw new NotImplementedException();
         }
 
-        public FunctionOpenResult<bool> UpdateByID(AppConfig info)
+        public FunctionOpenResult<bool> UpdateByID(App info)
         {
             throw new NotImplementedException();
         }
