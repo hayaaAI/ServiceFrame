@@ -1,66 +1,62 @@
 ﻿using Hayaa.BaseModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace Hayaa.RemoteConfigClient.Model
+namespace Hayaa.RemoteService
 {
     /// <summary>
-    /// 程序组件配置方案
+    /// 宿主程序配置方案
     /// </summary>
     [Serializable]
-   public class ComponentConfig:BaseData
+    public class AppConfig:BaseData
     {
         /// <summary>
-        /// ID
-        /// </summary>		
-        
+        /// 配置数据ID
+        /// </summary>	
         public int ID
         {
             get;
             set;
         }
         /// <summary>
-        /// 组件配置ID
+        /// 解决方案ID
         /// </summary>	
-       
-        public int ComponentConfigID
+        public Guid SolutionID
         {
             get;
             set;
         }
         /// <summary>
-        /// 组件ID
-        /// </summary>		
-        
-        public int ComponentID
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 组件配置内容
-        /// </summary>		
-        
-        public string Content
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 配置内容版本
+        /// 解决方案名称
         /// </summary>	
-       
+        public string SolutionName
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 方案配置
+        /// </summary>	
+        public string ConfigContent
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 程序配置方案版本 
+        /// </summary>
         public int Version
         {
             get;
             set;
-        }       
+        }
         /// <summary>
-        /// 配置标题
+        /// 程序组件配置内容
         /// </summary>
-        
-        public string ComponentConfigTitle { get; set; }
+        public List<ComponentConfig> Components { get; set; }
+
+
     }
 }
