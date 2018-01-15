@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Hayaa.RemoteService
 {
-   public class AppConfigGridSearch
+    public class AppConfigGridSearch
     {
+        public string Title { get; set; }
     }
 }

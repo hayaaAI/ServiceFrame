@@ -12,12 +12,12 @@ namespace Hayaa.RemoteService.DataAccess
 	    private static string  g_con= ConfigHelper.Instance.GetConnection(DefineTable.RemoteDatabaseName);
         internal static int Add(Component info)
         {
-            string sql = "insert Component (ID,ComponentID,Title,Name,CreateTime) values(@ID,@ComponentID,@Title,@Name,@CreateTime)";
+            string sql = "insert Component (ID,ComponentID,Title,Name) values(@ID,@ComponentID,@Title,@Name)";
             return Update<Component>(g_con,sql, info) ;
         }
 		  internal static int update(Component info)
         {
-            string sql = "update Component set ID=@ID,ComponentID=@ComponentID,Title=@Title,Name=@Name,CreateTime=@CreateTime where ComponentID=@ComponentID";
+            string sql = "update Component set ID=@ID,ComponentID=@ComponentID,Title=@Title,Name=@Name where ComponentID=@ComponentID";
             return Update<Component>(g_con,sql, info) ;
         }
 		 internal static bool Delete(List<int> IDs)
@@ -37,7 +37,7 @@ namespace Hayaa.RemoteService.DataAccess
         }
 		internal static GridPager<Component> GetGridPager(int pageSize,int pageIndex,string searcheKey)
         {
-            string sql = "select SQL_CALC_FOUND_ROWS * from Component where 1=1 limit (@pageIndex-1)*@pageSize,@pageIndex*@pageSize;select FOUND_ROWS();";
+            string sql = "select SQL_CALC_FOUND_ROWS * from Component where Title like '%'+@searchKey+'%' limit (@pageIndex-1)*@pageSize,@pageIndex*@pageSize;select FOUND_ROWS();";
             return GetGridPager<Component>(g_con,sql,pageSize,pageIndex,new{pageSize=pageSize,pageIndex=pageIndex,searchKey=searcheKey}) ;
         }
     }

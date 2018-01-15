@@ -13,12 +13,12 @@ namespace Hayaa.RemoteService.DataAccess
 	    private static string  g_con= ConfigHelper.Instance.GetConnection(DefineTable.RemoteDatabaseName);
         internal static int Add(App info)
         {
-            string sql = "insert App (AppID,Title,Name,CreateTime) values(@AppID,@Title,@Name,@CreateTime)";
+            string sql = "insert App (AppID,Title,Name) values(@AppID,@Title,@Name)";
             return Update<App>(g_con,sql, info) ;
         }
 		  internal static int update(App info)
         {
-            string sql = "update App set AppID=@AppID,Title=@Title,Name=@Name,CreateTime=@CreateTime where AppID=@AppID";
+            string sql = "update App set AppID=@AppID,Title=@Title,Name=@Name where AppID=@AppID";
             return Update<App>(g_con,sql, info) ;
         }
 		 internal static bool Delete(List<int> IDs)
@@ -38,7 +38,7 @@ namespace Hayaa.RemoteService.DataAccess
         }
 		internal static GridPager<App> GetGridPager(int pageSize,int pageIndex,string searcheKey)
         {
-            string sql = "select SQL_CALC_FOUND_ROWS * from App where 1=1 limit (@pageIndex-1)*@pageSize,@pageIndex*@pageSize;select FOUND_ROWS();";
+            string sql = "select SQL_CALC_FOUND_ROWS * from App where Title like '%'+@searcheKey+'%' limit (@pageIndex-1)*@pageSize,@pageIndex*@pageSize;select FOUND_ROWS();";
             return GetGridPager<App>(g_con,sql,pageSize,pageIndex,new{pageSize=pageSize,pageIndex=pageIndex,searchKey=searcheKey}) ;
         }
     }

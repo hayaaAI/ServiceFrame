@@ -2,29 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 using Hayaa.BaseModel;
+using Hayaa.RemoteService.DataAccess;
 
 namespace Hayaa.RemoteService.Core
 {
-   public class ComponentServer : ComponentService
+    public class ComponentServer : ComponentService
     {
         public FunctionResult<Component> Create(Component info)
         {
-            throw new NotImplementedException();
+            var r = new FunctionResult<Component>();
+            int id = ComponentDal.Add(info);
+            if (id > 0)
+            {
+                r.Data = info;
+                r.Data.ComponentID = id;
+            }
+            return r;
         }
-
-        public FunctionOpenResult<bool> DeleteByID(int ID)
+        public FunctionOpenResult<bool> UpdateByID(Component info)
         {
-            throw new NotImplementedException();
+            var r = new FunctionOpenResult<bool>();
+            r.Data = ComponentDal.update(info) > 0;
+            return r;
+        }
+        public FunctionOpenResult<bool> DeleteByID(List<int> idList)
+        {
+            var r = new FunctionOpenResult<bool>();
+            r.Data = ComponentDal.Delete(idList);
+            return r;
         }
 
         public GridPager<Component> GetPager(GridPagerPamater<ComponentGridSearch> searchParam)
         {
-            throw new NotImplementedException();
-        }
-
-        public FunctionOpenResult<bool> UpdateByID(Component info)
-        {
-            throw new NotImplementedException();
+            var r = ComponentDal.GetGridPager(searchParam.PageSize, searchParam.Current, searchParam.SearchPamater.Title);
+            return r;
         }
     }
 }

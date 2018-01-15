@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.5" />
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.6" />
     <PackageReference Include="Hayaa.DataAccess" Version="1.0.0.1" />
   </ItemGroup>
 

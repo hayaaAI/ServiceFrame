@@ -20,20 +20,25 @@ namespace Hayaa.RemoteService.Core
             }
             return r;
         }
-
-        public FunctionOpenResult<bool> DeleteByID(int ID)
+        public FunctionOpenResult<bool> UpdateByID(AppConfig info)
         {
-            throw new NotImplementedException();
+            var r = new FunctionOpenResult<bool>();
+            r.Data = AppConfigDal.update(info) > 0;
+            return r;
+        }
+        public FunctionOpenResult<bool> DeleteByID(List<int> idList)
+        {
+            var r = new FunctionOpenResult<bool>();
+            r.Data = AppConfigDal.Delete(idList);
+            return r;
         }
 
         public GridPager<AppConfig> GetPager(GridPagerPamater<AppConfigGridSearch> searchParam)
         {
-            throw new NotImplementedException();
+            var r = AppConfigDal.GetGridPager(searchParam.PageSize, searchParam.Current, searchParam.SearchPamater.Title);
+            return r;
         }
 
-        public FunctionOpenResult<bool> UpdateByID(AppConfig info)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

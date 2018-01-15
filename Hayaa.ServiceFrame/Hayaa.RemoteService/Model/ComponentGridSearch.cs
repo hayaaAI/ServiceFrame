@@ -2,5 +2,6 @@
 {
     public class ComponentGridSearch
     {
+        public string Title { get; set; }
     }
 }
