@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.RemoteService", "Haya
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.RemoteService.Core", "Hayaa.RemoteService.Core\Hayaa.RemoteService.Core.csproj", "{694984F8-3BCF-4170-81E3-48CFD3F3854D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.CodeRepo.GogsHttpService", "Hayaa.CodeRepo.GogsHttpService\Hayaa.CodeRepo.GogsHttpService.csproj", "{91FE3E66-E2EE-44CD-8179-0124917EA8BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{694984F8-3BCF-4170-81E3-48CFD3F3854D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FE3E66-E2EE-44CD-8179-0124917EA8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FE3E66-E2EE-44CD-8179-0124917EA8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FE3E66-E2EE-44CD-8179-0124917EA8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FE3E66-E2EE-44CD-8179-0124917EA8BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{AB2C9A1C-B810-4C33-8AD8-FB7AA45C39AB} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 		{31761C68-9061-42E7-B6DF-16F3A031789C} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 		{694984F8-3BCF-4170-81E3-48CFD3F3854D} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
+		{91FE3E66-E2EE-44CD-8179-0124917EA8BE} = {AF5F6764-EC2B-4574-AB36-3CF61216E02B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}
