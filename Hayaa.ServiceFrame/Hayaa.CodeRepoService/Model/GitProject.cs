@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hayaa.CodeRepoService.Model
+namespace Hayaa.CodeRepoService
 {
     /// <summary>
     /// Git项目
@@ -13,7 +13,7 @@ namespace Hayaa.CodeRepoService.Model
         /// <summary>
         /// Git项目ID
         /// </summary>
-        public int GitProjectID { set; get; }
+        public int GitProjectID { set; get; }       
         /// <summary>
         /// 展示名称
         /// </summary>

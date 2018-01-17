@@ -23,7 +23,7 @@ namespace Hayaa.ProjectService
         }
 		 internal static bool Delete(List<int> IDs)
         {
-            string sql = "delete from Project where AppID in(@ids)";
+            string sql = "delete from Project where ProjectID in(@ids)";
             return Excute(g_con,sql, new { ids = IDs.ToArray() })>0;
         }
 		  internal static Project Get(int infoID)
