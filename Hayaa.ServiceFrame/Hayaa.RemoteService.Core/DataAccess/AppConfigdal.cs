@@ -23,7 +23,7 @@ namespace Hayaa.RemoteService.DataAccess
         }
 		 internal static bool Delete(List<int> IDs)
         {
-            string sql = "delete from AppConfig where AppID in(@ids)";
+            string sql = "delete from AppConfig where AppConfigID in(@ids)";
             return Excute(AppConfigDal.g_con,sql, new { ids = IDs.ToArray() })>0;
         }
 		  internal static AppConfig Get(Guid solutionID,int version)

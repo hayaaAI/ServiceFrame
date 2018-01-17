@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.6" />
-    <PackageReference Include="Hayaa.Common" Version="1.0.0.1" />
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.7" />
+    <PackageReference Include="Hayaa.Common" Version="1.0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <ProjectReference Include="..\Hayaa.RemoteConfigClient\Hayaa.RemoteConfigClient.csproj" />
   </ItemGroup>
 
 </Project>

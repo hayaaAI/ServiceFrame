@@ -69,7 +69,7 @@ namespace Hayaa.RemoteConfigClient
             var config = ProgramDistributedConfig.Instance.GetComponentConfig(componentID);
             if (config != null)
             {
-                if (string.IsNullOrEmpty(config.Content))
+                if (!string.IsNullOrEmpty(config.Content))
                 {
                     r.Data= JsonHelper.Deserialize<T>(config.Content);
                 }

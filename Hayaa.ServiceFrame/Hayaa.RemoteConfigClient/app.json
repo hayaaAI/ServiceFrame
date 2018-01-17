@@ -1,6 +1,6 @@
 //远程配置文件内容示范文件
 {
-  "AppID": 1,
+  "AppID": null,
   "SolutionID": "",
   "SolutionName": "",
   "ConfigContent": "",
@@ -14,6 +14,5 @@
       "Version": 1,
       "ComponentConfigTitle": ""
     }
-  ],
-  "CompeontInstances": []
+  ]
 }

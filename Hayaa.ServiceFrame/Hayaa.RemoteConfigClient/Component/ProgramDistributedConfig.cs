@@ -167,7 +167,7 @@ namespace Hayaa.RemoteConfigClient
                 r=JsonHelper.Deserialize<AppLocalConfig>(File.ReadAllText(baseDirectory + "/appconfig.json"));//读取根目录下的配置文件
                 if (r.IsVirtualPath)//web系统相对部署根目录获取绝对路径
                 {
-                    r.LocalConfigDirectoryPath =baseDirectory+r.LocalConfigDirectoryPath.Replace("~/","/");
+                    r.LocalConfigDirectoryPath =baseDirectory+r.LocalConfigDirectoryPath.Replace("~/","");
                 }
             }
             catch (Exception ex)

@@ -20,17 +20,17 @@ namespace Hayaa.RemoteService.DataAccess
 
         internal static int update(ComponentConfig info)
         {
-            string sql = "update ComponentConfig set ComponentConfigID=@ComponentConfigID,ComponentConfigTitle=@ComponentConfigTitle,Name=@Name,ComponentID=@ComponentID,Content=@Content,Version=@Version,IsDefault=@IsDefault where ComponentConfigID=@ComponentConfigID";
+            string sql = "update ComponentConfig set ComponentConfigID=@ComponentConfigID,ComponentConfigTitle=@ComponentConfigTitle,Name=@Name,ComponentID=@ComponentID,Content=@Content,Version=@Version,IsDefault=@IsDefault where ID=@ID";
             return Update<ComponentConfig>(g_con,sql, info) ;
         }
 		 internal static bool Delete(List<int> IDs)
         {
-            string sql = "delete from ComponentConfig where AppID in(@ids)";
+            string sql = "delete from ComponentConfig where ID in(@ids)";
             return Excute(g_con,sql, new { ids = IDs.ToArray() })>0;
         }
 		  internal static ComponentConfig Get(int infoID)
         {
-            string sql = "select * from ComponentConfig  where ComponentConfigID=@ComponentConfigID";
+            string sql = "select * from ComponentConfig  where ID=@ID";
             return Get<ComponentConfig>(g_con,sql, new{ ComponentConfigID=infoID}) ;
         }
 		internal static List<ComponentConfig> GetList()
@@ -40,7 +40,7 @@ namespace Hayaa.RemoteService.DataAccess
         }
         internal static List<ComponentConfig> GetList(int appConfigID, int version)
         {
-            string sql = "select * from ComponentConfig where AppConfigID=@AppConfigID and AppConfigVersion=@AppConfigVersion and IsActive=1";
+            string sql = "select a.* from ComponentConfig a inner join Rel_AppConfig_ComponentConfig b on a.ComponentConfigID=b.ComponentConfigID and a.Version=b.ComponentConfigVersion and b.AppConfigID=@AppConfigID and b.AppConfigVersion=@AppConfigVersion and b.IsActive=1";
             return GetList<ComponentConfig>(g_con, sql, new { AppConfigID = appConfigID, AppConfigVersion=version });
         }
         internal static GridPager<ComponentConfig> GetGridPager(int pageSize,int pageIndex,string searcheKey)
