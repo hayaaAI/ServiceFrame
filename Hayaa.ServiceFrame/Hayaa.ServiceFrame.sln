@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.CodeRepo.GogsHttpServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestForGogsHttpService", "XUnitTestForGogsHttpService\XUnitTestForGogsHttpService.csproj", "{4A0E675B-78B2-45B3-8CA1-85AC9F387205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestForRemoteConfig", "XUnitTestForRemoteConfig\XUnitTestForRemoteConfig.csproj", "{AE142C98-2FBE-41EC-8837-BD7CABAB7002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{4A0E675B-78B2-45B3-8CA1-85AC9F387205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A0E675B-78B2-45B3-8CA1-85AC9F387205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A0E675B-78B2-45B3-8CA1-85AC9F387205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE142C98-2FBE-41EC-8837-BD7CABAB7002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE142C98-2FBE-41EC-8837-BD7CABAB7002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE142C98-2FBE-41EC-8837-BD7CABAB7002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE142C98-2FBE-41EC-8837-BD7CABAB7002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{694984F8-3BCF-4170-81E3-48CFD3F3854D} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 		{91FE3E66-E2EE-44CD-8179-0124917EA8BE} = {AF5F6764-EC2B-4574-AB36-3CF61216E02B}
 		{4A0E675B-78B2-45B3-8CA1-85AC9F387205} = {AF5F6764-EC2B-4574-AB36-3CF61216E02B}
+		{AE142C98-2FBE-41EC-8837-BD7CABAB7002} = {671E98F7-BA32-48C3-A7D5-3587AAA70300}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}
