@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hayaa.ProjectService\Hayaa.ProjectService.csproj" />
-    <ProjectReference Include="..\Hayaa.RemoteConfigClient\Hayaa.RemoteConfigClient.csproj" />
   </ItemGroup>
 
 </Project>

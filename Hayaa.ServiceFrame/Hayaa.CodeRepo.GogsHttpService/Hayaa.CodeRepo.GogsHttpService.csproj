@@ -9,8 +9,4 @@
     <PackageReference Include="Hayaa.Common" Version="1.0.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Hayaa.RemoteConfigClient\Hayaa.RemoteConfigClient.csproj" />
-  </ItemGroup>
-
 </Project>
