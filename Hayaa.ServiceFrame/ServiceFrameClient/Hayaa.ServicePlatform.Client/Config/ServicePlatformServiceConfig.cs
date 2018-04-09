@@ -3,15 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hayaa.RemoteService.Core.Config
+namespace Hayaa.ServicePlatform.Client.Config
 {
     /// <summary>
     /// 服务配置类
     /// </summary>
     [Serializable]
-    class RemoteServiceConfig:BaseData, ConfigContent
+    internal class ServicePlatformServiceConfig : BaseData, ConfigContent
     {
-       
+        /// <summary>
+        /// App的组件
+        /// </summary>
+       public List<AppComponent> Components { set; get; }
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }
     }
