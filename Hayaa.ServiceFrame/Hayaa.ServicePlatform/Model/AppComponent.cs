@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Hayaa.BaseModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hayaa.ServicePlatform.Client.Config
+namespace Hayaa.ServicePlatform.Service.Model
 {
     [Serializable]
-    class AppComponent
+   public class AppComponent:BaseData
     {
-        public int ComponentInstanceId
+        public int AppComponentId
         {
             get;
             set;
@@ -15,7 +16,7 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// <summary>
         /// 程序用户ID
         /// </summary>	
-        public List<int> AppUserId
+        public int AppUserId
         {
             get;
             set;
@@ -70,15 +71,7 @@ namespace Hayaa.ServicePlatform.Client.Config
         {
             get;
             set;
-        }
-        /// <summary>
-        /// 接口名称
-        /// </summary>
-        public List<string> ComponentInterface
-        {
-            set;get;
-
-        }     
+        }       
         /// <summary>
         /// 程序集版本
         /// </summary>		
