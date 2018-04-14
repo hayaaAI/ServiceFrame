@@ -16,6 +16,10 @@ namespace Hayaa.ServicePlatform.Service.Config
         /// App的组件
         /// </summary>
        public List<AppComponent> Components { set; get; }
+        /// <summary>
+        /// App实例信息收听地址
+        /// </summary>
+        public String AppInstanceUrl { set; get; }
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }
     }

@@ -13,7 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{2A456C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.ServicePlatform.Client", "ServiceFrameClient\Hayaa.ServicePlatform.Client\Hayaa.ServicePlatform.Client.csproj", "{92A57D81-8649-4383-A9B4-358AECDCDE15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.ServicePlatform.Service.Core", "Hayaa.ServicePlatform.Service.Core\Hayaa.ServicePlatform.Service.Core.csproj", "{0FD42B44-51ED-4E01-A623-FC7E010C2E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.ServicePlatform.Service.Core", "Hayaa.ServicePlatform.Service.Core\Hayaa.ServicePlatform.Service.Core.csproj", "{0FD42B44-51ED-4E01-A623-FC7E010C2E75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{7B32E9A7-A18B-4C71-AA9E-C15D59C44059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{EC9B518D-B16D-40D2-A4C4-F33C61CE3106}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Site", "Site", "{DB0B1D4F-1A48-4E8D-96F1-C0AA94AA5C80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{CF56EF1E-8261-4D49-93E6-4ED672487A85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,8 +51,11 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8E5AD497-3D5B-44AB-BDD2-C89180724F38} = {5CD6A2C3-8F5D-4087-9B14-F89EB88BD541}
+		{5CD6A2C3-8F5D-4087-9B14-F89EB88BD541} = {CF56EF1E-8261-4D49-93E6-4ED672487A85}
 		{92A57D81-8649-4383-A9B4-358AECDCDE15} = {2A456CE7-8164-4303-A21B-DFF854C93B9F}
 		{0FD42B44-51ED-4E01-A623-FC7E010C2E75} = {5CD6A2C3-8F5D-4087-9B14-F89EB88BD541}
+		{EC9B518D-B16D-40D2-A4C4-F33C61CE3106} = {7B32E9A7-A18B-4C71-AA9E-C15D59C44059}
+		{DB0B1D4F-1A48-4E8D-96F1-C0AA94AA5C80} = {7B32E9A7-A18B-4C71-AA9E-C15D59C44059}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}
