@@ -1,5 +1,5 @@
 ﻿using Hayaa.BaseModel;
-using Hayaa.ServicePlatform.Service.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hayaa.ServicePlatform.Service.Model
+namespace Hayaa.ServicePlatform.Service
 {
     /// <summary>
     /// App的组件运行用户

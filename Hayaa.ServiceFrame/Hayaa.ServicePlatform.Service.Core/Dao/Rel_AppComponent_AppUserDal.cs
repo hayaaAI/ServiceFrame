@@ -22,6 +22,9 @@ namespace Hayaa.ServicePlatform.Service.Dao
             string sql = "update Rel_AppComponent_AppUser set Id=@Id,AppUserId=@AppUserId,AppComponentId=@AppComponentId where Rel_AppComponent_AppUserId=@Rel_AppComponent_AppUserId";
             return Insert<Rel_AppComponent_AppUser>(con, sql, info);
         }
+
+       
+
         internal static bool Delete(List<int> IDs)
         {
             string sql = "delete from  Rel_AppComponent_AppUser where Rel_AppComponent_AppUserId in @ids";

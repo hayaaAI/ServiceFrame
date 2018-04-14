@@ -8,9 +8,10 @@ namespace Hayaa.ServicePlatform.Service
 {
     public class Rel_AppComponent_AppUser : BaseData
     {
-        public int? Id { set; get; }
-        public int? AppUserId { set; get; }
-        public int? AppComponentId { set; get; }
+        public int Id { set; get; }
+        public int AppId { set; get; }
+        public int AppUserId { set; get; }
+        public int AppComponentId { set; get; }
         public DateTime? CreateTime { set; get; }
     }
 }

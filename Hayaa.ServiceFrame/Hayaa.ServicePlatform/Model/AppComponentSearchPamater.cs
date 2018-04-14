@@ -6,7 +6,7 @@ using Hayaa.BaseModel;
 /// </summary>
 namespace Hayaa.ServicePlatform.Service
 {
-    public class AppComponentSearchPamater : SearchPamaterMariadbBase
+    public partial class AppComponentSearchPamater : SearchPamaterMariadbBase
     {
         public int? AppComponentId { set; get; }
         public List<int?> AppComponentIdList { set; get; }

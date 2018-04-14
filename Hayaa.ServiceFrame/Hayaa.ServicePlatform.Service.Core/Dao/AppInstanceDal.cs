@@ -4,7 +4,7 @@ using System.Text;
 using Hayaa.DataAccess;
 using Hayaa.BaseModel;
 using Hayaa.ServicePlatform.Service.Config;
-using Hayaa.ServicePlatform.Service.Model;
+
 /// <summary>
 ///代码效率工具生成，此文件不要修改
 /// </summary>
@@ -15,7 +15,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppInstance info)
         {
-            string sql = "insert into AppInstance(Title) values(@Title)";
+            string sql = "insert into AppInstance(Title,AppId) values(@Title,@AppId)";
             return Insert<AppInstance>(con, sql, info);
         }
         internal static int Update(AppInstance info)

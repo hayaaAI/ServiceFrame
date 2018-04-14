@@ -63,6 +63,7 @@ namespace Hayaa.ServicePlatform.Client
             _assembliesData.Clear();
             ServiceFactory.Instance.Clear();
         }
+
         /// <summary>
         /// 创建服务实例
         /// </summary>
