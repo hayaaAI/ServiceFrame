@@ -21,7 +21,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         internal static int Update(AppUser info)
         {
             string sql = "update AppUser set Name=@Name,Title=@Title where AppUserId=@AppUserId";
-            return Insert<AppUser>(con, sql, info);
+            return Update<AppUser>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)
         {

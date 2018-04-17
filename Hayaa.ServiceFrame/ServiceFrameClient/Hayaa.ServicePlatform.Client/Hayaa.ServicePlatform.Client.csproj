@@ -20,7 +20,6 @@
     <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.13" />
     <PackageReference Include="Hayaa.Common" Version="1.0.0.3" />
     <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.5" />
-    <PackageReference Include="System.Linq" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

@@ -20,7 +20,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         internal static int Update(AppComponentInterface info)
         {
             string sql = "update AppComponentInterface set Id=@Id,ComponentInterface=@ComponentInterface,AppComponentId=@AppComponentId where AppComponentInterfaceId=@AppComponentInterfaceId";
-            return Insert<AppComponentInterface>(con, sql, info);
+            return Update<AppComponentInterface>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)
         {

@@ -20,7 +20,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         internal static int Update(Rel_AppComponent_AppUser info)
         {
             string sql = "update Rel_AppComponent_AppUser set Id=@Id,AppUserId=@AppUserId,AppComponentId=@AppComponentId where Rel_AppComponent_AppUserId=@Rel_AppComponent_AppUserId";
-            return Insert<Rel_AppComponent_AppUser>(con, sql, info);
+            return Update<Rel_AppComponent_AppUser>(con, sql, info);
         }
 
        

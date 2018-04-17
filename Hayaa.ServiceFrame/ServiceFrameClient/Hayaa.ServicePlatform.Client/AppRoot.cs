@@ -45,14 +45,18 @@ namespace Hayaa.ServicePlatform.Client
                     }
                     AppSeed.SetAppInstanceId(appInstanceId);
                 }
-                String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
-                urlParamater.Clear();
-                urlParamater.Add("appservice", strAppService);
-                 response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
-                TransactionResult<Boolean> trAppService = JsonHelper.DeserializeSafe<TransactionResult<Boolean>>(response);
-                if (trAppService.Code == 0)
+                if (appInstanceId > 0)
                 {
-                  
+                    String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
+                    urlParamater.Clear();
+                    urlParamater.Add("appservice", strAppService);
+                    urlParamater.Add("appinstanceid", appInstanceId.ToString());
+                    response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
+                    TransactionResult<Boolean> trAppService = JsonHelper.DeserializeSafe<TransactionResult<Boolean>>(response);
+                    if (trAppService.Code == 0)
+                    {
+
+                    }
                 }
 
             }
@@ -84,7 +88,7 @@ namespace Hayaa.ServicePlatform.Client
                                     foreach (var m in methods)
                                     {
                                         appService.AppFunctions.Add(new AppFunction() {
-                                             FuntionName=m.Name,
+                                             FunctionName=m.Name,
                                               PathName=m.Name,
                                               Status=0
                                         });

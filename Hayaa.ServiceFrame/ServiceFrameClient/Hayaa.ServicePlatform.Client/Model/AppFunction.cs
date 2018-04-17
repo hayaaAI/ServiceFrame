@@ -8,7 +8,7 @@ namespace Hayaa.ServicePlatform.Client.Model
     internal class AppFunction
     {
         public int AppFuntionId { set; get; }
-        public String FuntionName { set; get; }
+        public String FunctionName { set; get; }
         public String PathName { set; get; }
         public String Title { set; get; }
         public byte Status { set; get; }

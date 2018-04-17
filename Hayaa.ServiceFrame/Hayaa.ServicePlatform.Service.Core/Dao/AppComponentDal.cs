@@ -21,7 +21,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         internal static int Update(AppComponent info)
         {
             string sql = "update AppComponent set ComponetId=@ComponetId,ComponentServiceCompeleteName=@ComponentServiceCompeleteName,ComponentServiceName=@ComponentServiceName,ComponentAssemblyName=@ComponentAssemblyName,ComponentAssemblyFileName=@ComponentAssemblyFileName,ComponentAssemblyFileStorePath=@ComponentAssemblyFileStorePath,AssemblyVersion=@AssemblyVersion where AppComponentId=@AppComponentId";
-            return Insert<AppComponent>(con, sql, info);
+            return Update<AppComponent>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)
         {
