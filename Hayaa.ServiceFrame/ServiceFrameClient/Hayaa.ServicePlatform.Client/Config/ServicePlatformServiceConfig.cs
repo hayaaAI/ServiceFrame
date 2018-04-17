@@ -16,9 +16,17 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// </summary>
        public List<AppComponent> Components { set; get; }
         /// <summary>
-        /// App实例信息收听地址
+        /// App实例信息收集地址
         /// </summary>
         public String AppInstanceUrl { set; get; }
+        /// <summary>
+        /// App功能验证收集与验证地址
+        /// </summary>
+        public String AppServiceUrl { set; get; }
+        /// <summary>
+        /// App默认执行用户Id
+        /// </summary>
+        public int DefaultAppUserId { set; get; }
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }
     }

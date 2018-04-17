@@ -14,13 +14,29 @@ namespace Hayaa.ServicePlatform.Service
     {
         public FunctionResult<AppInstance> Create(AppInstance info)
         {
-            var r = new FunctionResult<AppInstance>(); int id = AppInstanceDal.Add(info); if (id > 0) { r.Data = info; r.Data.AppInstanceId = id; }
+            var r = new FunctionResult<AppInstance>();
+            int id = AppInstanceDal.Add(info);
+            if (id > 0) { r.Data = info; r.Data.AppInstanceId = id; }
             return r;
         }
-        public FunctionOpenResult<bool> UpdateByID(AppInstance info) { var r = new FunctionOpenResult<bool>(); r.Data = AppInstanceDal.Update(info) > 0; return r; }
-        public FunctionOpenResult<bool> DeleteByID(List<int> idList) { var r = new FunctionOpenResult<bool>(); r.Data = AppInstanceDal.Delete(idList); return r; }
-        public FunctionResult<AppInstance> Get(int Id) { var r = new FunctionResult<AppInstance>(); r.Data = AppInstanceDal.Get(Id); return r; }
-        public FunctionListResult<AppInstance> GetList(AppInstanceSearchPamater pamater) { var r = new FunctionListResult<AppInstance>(); r.Data = AppInstanceDal.GetList(pamater); return r; }
-        public GridPager<AppInstance> GetPager(GridPagerPamater<AppInstanceSearchPamater> searchParam) { var r = AppInstanceDal.GetGridPager(searchParam); return r; }
+        public FunctionOpenResult<bool> UpdateByID(AppInstance info) {
+            var r = new FunctionOpenResult<bool>();
+            r.Data = AppInstanceDal.Update(info) > 0;
+            return r; }
+        public FunctionOpenResult<bool> DeleteByID(List<int> idList) {
+            var r = new FunctionOpenResult<bool>();
+            r.Data = AppInstanceDal.Delete(idList);
+            return r; }
+        public FunctionResult<AppInstance> Get(int Id) {
+            var r = new FunctionResult<AppInstance>();
+            r.Data = AppInstanceDal.Get(Id);
+            return r; }
+        public FunctionListResult<AppInstance> GetList(AppInstanceSearchPamater pamater) {
+            var r = new FunctionListResult<AppInstance>();
+            r.Data = AppInstanceDal.GetList(pamater);
+            return r; }
+        public GridPager<AppInstance> GetPager(GridPagerPamater<AppInstanceSearchPamater> searchParam) {
+            var r = AppInstanceDal.GetGridPager(searchParam);
+            return r; }
     }
 }
