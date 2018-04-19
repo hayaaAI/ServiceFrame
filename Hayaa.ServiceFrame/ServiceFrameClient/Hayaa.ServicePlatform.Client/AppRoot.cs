@@ -11,18 +11,21 @@ using System.Text;
 
 namespace Hayaa.ServicePlatform.Client
 {
-   public class AppRoot
+    public class AppRoot
     {
         /// <summary>
         /// 启动APP，加载配置文件
         /// </summary>
         public static void StartApp()
-        {
-            AppSeed.Instance.InitConfig();
-            SendAppInstance();
+        {           
+            InitApp();
         }
-
-        private static void SendAppInstance()
+        /// <summary>
+        /// 申请App实例Id
+        /// 置换token
+        /// 获取远程配置
+        /// </summary>
+        private static void InitApp()
         {
             //获取AppId
             var config = AppSeed.GetAppLocalConfig();
@@ -31,67 +34,64 @@ namespace Hayaa.ServicePlatform.Client
                 int appId = config.Data.AppID;
                 int appInstanceId = config.Data.AppInstanceID;
                 var urlParamater = new Dictionary<string, string>();
-               
+
                 HttpRequestHelper httpHelper = new HttpRequestHelper();
                 String response = null;
                 urlParamater.Add("t", config.Data.SecurityToken);
-                if (appInstanceId == 0)//未获取到实例Id发送请求
+                String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
+                urlParamater.Add("appservice", strAppService);
+                urlParamater.Add("appinstanceid", appInstanceId.ToString());
+                response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
+                TransactionResult<AppAuthReponse> trAppService = JsonHelper.DeserializeSafe<TransactionResult<AppAuthReponse>>(response);
+                if (trAppService.Code == 0)
                 {
-                    urlParamater.Add("appid", appId.ToString());
-                    response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppInstanceUrl, urlParamater);
-                    TransactionResult<int> tr = JsonHelper.DeserializeSafe<TransactionResult<int>>(response);
-                    if (tr.Code == 0)
+                    if (appInstanceId == 0)
                     {
-                        appInstanceId = tr.Data;
+                        appInstanceId = trAppService.Data.AppInstanceId;
+                        AppSeed.SetAppInstanceId(appInstanceId);
                     }
-                    AppSeed.SetAppInstanceId(appInstanceId);
+                    config.Data.SecurityToken = trAppService.Data.AppInstanceToken;//将APP的Token置换为实例Token，但是不保存至文件中
+                    AppSeed.Instance.InitConfig();
                 }
-                if (appInstanceId > 0)
+                else
                 {
-                    String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
-                    urlParamater.Clear();
-                    urlParamater.Add("appservice", strAppService);
-                    urlParamater.Add("appinstanceid", appInstanceId.ToString());
-                    response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
-                    TransactionResult<Boolean> trAppService = JsonHelper.DeserializeSafe<TransactionResult<Boolean>>(response);
-                    if (trAppService.Code == 0)
-                    {
-
-                    }
+                    throw new Exception(trAppService.Message);
                 }
 
+               
             }
         }
         private static List<AppService> GetAppService(int appId)
         {
             List<AppService> result = new List<AppService>();
-            Assembly[] arr= AppDomain.CurrentDomain.GetAssemblies();
+            Assembly[] arr = AppDomain.CurrentDomain.GetAssemblies();
             if (arr != null)
             {
-                foreach(var a in arr)
+                foreach (var a in arr)
                 {
                     if (a.FullName.Contains("Controller"))//只遍历符合框架规定的程序集
                     {
                         Type[] typeList = a.GetTypes();
-                        foreach(var t in typeList)
+                        foreach (var t in typeList)
                         {
                             if (t.Name.Contains("Controller"))
                             {
                                 var appService = new AppService()
                                 {
-                                     AppId=appId,
-                                      Name=t.Name
+                                    AppId = appId,
+                                    Name = t.Name
                                 };
-                                MethodInfo[] methods= t.GetMethods();
+                                MethodInfo[] methods = t.GetMethods();
                                 if (methods != null)
                                 {
                                     appService.AppFunctions = new List<AppFunction>();
                                     foreach (var m in methods)
                                     {
-                                        appService.AppFunctions.Add(new AppFunction() {
-                                             FunctionName=m.Name,
-                                              PathName=m.Name,
-                                              Status=0
+                                        appService.AppFunctions.Add(new AppFunction()
+                                        {
+                                            FunctionName = m.Name,
+                                            PathName = m.Name,
+                                            Status = 0
                                         });
                                     }
                                 }
@@ -106,7 +106,7 @@ namespace Hayaa.ServicePlatform.Client
         }
         public static int GetDefaultAppUser()
         {
-            ServicePlatformServiceConfig config= ConfigHelper.Instance.GetComponentConfig();
+            ServicePlatformServiceConfig config = ConfigHelper.Instance.GetComponentConfig();
             if (config != null) return config.DefaultAppUserId;
             return 0;
         }
@@ -117,6 +117,6 @@ namespace Hayaa.ServicePlatform.Client
         {
             AppSeed.Instance.Resetonfig();
         }
-        
+
     }
 }
