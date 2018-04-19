@@ -9,18 +9,19 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Linq;
+using Hayaa.Security.Client;
 
 namespace Hayaa.ServicePlatform.Client
 {
     public class AppRoot
     {
-        private static Dictionary<String, List<String>> g_authorityData = null;
         /// <summary>
         /// 启动APP，加载配置文件
         /// </summary>
         public static void StartApp()
         {           
             InitApp();
+           
         }
         /// <summary>
         /// 申请App实例Id
@@ -54,7 +55,8 @@ namespace Hayaa.ServicePlatform.Client
                     }
                     config.Data.SecurityToken = trAppService.Data.AppInstanceToken;//将APP的Token置换为实例Token，但是不保存至文件中
                     AppSeed.Instance.InitConfig();
-                    g_authorityData = GetAuthority(appId, httpHelper);
+                    //初始化授权数据
+                    SecurityRoot.Init(appId);
                 }
                 else
                 {
@@ -65,28 +67,7 @@ namespace Hayaa.ServicePlatform.Client
             }
         }
 
-        private static Dictionary<String, List<String>> GetAuthority(int appId, HttpRequestHelper httpHelper)
-        {
-            Dictionary<String, List<String>> result = new Dictionary<string, List<string>>();
-            var urlParamater = new Dictionary<string, string>();
-            String response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppSecurityUrl, urlParamater);
-            TransactionResult<List<AppService>> serverResult = JsonHelper.DeserializeSafe<TransactionResult<List<AppService>>>(response);
-            if (serverResult.Code == 0)
-            {
-                serverResult.Data.ForEach(aps => {
-                    result.Add(aps.Name, aps.AppFunctions.Select(af => af.FunctionName).ToList());
-                });
-            }
-            else
-            {
-                throw new Exception(serverResult.Message);
-            }          
-            return result;
-        }
-        public static Dictionary<String,List<String>> GetAuthority()
-        {
-            return g_authorityData;
-        }
+        
         private static List<AppService> GetAppService(int appId)
         {
             List<AppService> result = new List<AppService>();

@@ -5,7 +5,7 @@ using System.Text;
 namespace Hayaa.ServicePlatform.Client.Model
 {
     [Serializable]
-   public class AppService
+    internal class AppService
     {
         public int AppServiceId { set; get; }
         public String Name { set; get; }

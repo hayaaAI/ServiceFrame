@@ -15,10 +15,7 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// App的组件
         /// </summary>
        public List<AppComponent> Components { set; get; }
-        /// <summary>
-        /// App授权数据获取地址
-        /// </summary>
-        public String AppSecurityUrl { set; get; }
+
         /// <summary>
         /// App功能验证收集与验证地址
         /// </summary>
