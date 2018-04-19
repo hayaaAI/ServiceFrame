@@ -5,7 +5,7 @@ using System.Text;
 namespace Hayaa.ServicePlatform.Client.Model
 {
     [Serializable]
-    internal class AppFunction
+    public class AppFunction
     {
         public int AppFuntionId { set; get; }
         public String FunctionName { set; get; }

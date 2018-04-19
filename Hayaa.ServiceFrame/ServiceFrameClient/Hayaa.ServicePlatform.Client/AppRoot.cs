@@ -13,6 +13,7 @@ namespace Hayaa.ServicePlatform.Client
 {
     public class AppRoot
     {
+        public static List<AppService> g_authorityData = null;
         /// <summary>
         /// 启动APP，加载配置文件
         /// </summary>
@@ -52,6 +53,7 @@ namespace Hayaa.ServicePlatform.Client
                     }
                     config.Data.SecurityToken = trAppService.Data.AppInstanceToken;//将APP的Token置换为实例Token，但是不保存至文件中
                     AppSeed.Instance.InitConfig();
+                    g_authorityData = GetAuthority(appId, httpHelper);
                 }
                 else
                 {
@@ -61,6 +63,24 @@ namespace Hayaa.ServicePlatform.Client
                
             }
         }
+
+        private static List<AppService> GetAuthority(int appId, HttpRequestHelper httpHelper)
+        {
+            List<AppService> result = null;
+            var urlParamater = new Dictionary<string, string>();
+            String response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppSecurityUrl, urlParamater);
+            TransactionResult<List<AppService>> serverResult = JsonHelper.DeserializeSafe<TransactionResult<List<AppService>>>(response);
+            if (serverResult.Code == 0)
+            {
+                result = serverResult.Data;
+            }
+            else
+            {
+                throw new Exception(serverResult.Message);
+            }          
+            return result;
+        }
+
         private static List<AppService> GetAppService(int appId)
         {
             List<AppService> result = new List<AppService>();
