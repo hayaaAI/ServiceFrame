@@ -8,12 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Linq;
 
 namespace Hayaa.ServicePlatform.Client
 {
     public class AppRoot
     {
-        private static List<AppService> g_authorityData = null;
+        private static Dictionary<String, List<String>> g_authorityData = null;
         /// <summary>
         /// 启动APP，加载配置文件
         /// </summary>
@@ -64,15 +65,17 @@ namespace Hayaa.ServicePlatform.Client
             }
         }
 
-        private static List<AppService> GetAuthority(int appId, HttpRequestHelper httpHelper)
+        private static Dictionary<String, List<String>> GetAuthority(int appId, HttpRequestHelper httpHelper)
         {
-            List<AppService> result = null;
+            Dictionary<String, List<String>> result = new Dictionary<string, List<string>>();
             var urlParamater = new Dictionary<string, string>();
             String response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppSecurityUrl, urlParamater);
             TransactionResult<List<AppService>> serverResult = JsonHelper.DeserializeSafe<TransactionResult<List<AppService>>>(response);
             if (serverResult.Code == 0)
             {
-                result = serverResult.Data;
+                serverResult.Data.ForEach(aps => {
+                    result.Add(aps.Name, aps.AppFunctions.Select(af => af.FunctionName).ToList());
+                });
             }
             else
             {
@@ -80,7 +83,7 @@ namespace Hayaa.ServicePlatform.Client
             }          
             return result;
         }
-        public static List<AppService> GetAuthority()
+        public static Dictionary<String,List<String>> GetAuthority()
         {
             return g_authorityData;
         }
