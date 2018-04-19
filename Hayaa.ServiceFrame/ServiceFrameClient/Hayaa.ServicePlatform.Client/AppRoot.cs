@@ -13,7 +13,7 @@ namespace Hayaa.ServicePlatform.Client
 {
     public class AppRoot
     {
-        public static List<AppService> g_authorityData = null;
+        private static List<AppService> g_authorityData = null;
         /// <summary>
         /// 启动APP，加载配置文件
         /// </summary>
@@ -80,7 +80,10 @@ namespace Hayaa.ServicePlatform.Client
             }          
             return result;
         }
-
+        public static List<AppService> GetAuthority()
+        {
+            return g_authorityData;
+        }
         private static List<AppService> GetAppService(int appId)
         {
             List<AppService> result = new List<AppService>();
