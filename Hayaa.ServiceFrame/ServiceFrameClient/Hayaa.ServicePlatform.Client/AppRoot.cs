@@ -34,6 +34,7 @@ namespace Hayaa.ServicePlatform.Client
                
                 HttpRequestHelper httpHelper = new HttpRequestHelper();
                 String response = null;
+                urlParamater.Add("t", config.Data.SecurityToken);
                 if (appInstanceId == 0)//未获取到实例Id发送请求
                 {
                     urlParamater.Add("appid", appId.ToString());

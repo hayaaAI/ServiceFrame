@@ -11,7 +11,7 @@
     <Description>服务框架客户端引用插件</Description>
     <Copyright>©2018 HayaaAI</Copyright>
     <PackageLicenseUrl>http://l.xieqj.net/license/hayaaai.txt</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/hayaaAI/RemoteConfig</PackageProjectUrl>
+    <PackageProjectUrl></PackageProjectUrl>
     <PackageIconUrl>http://r.xieqj.net/r/ico/hayaaia.ico</PackageIconUrl>
     <PackageTags>ServicePlatform</PackageTags>
   </PropertyGroup>
