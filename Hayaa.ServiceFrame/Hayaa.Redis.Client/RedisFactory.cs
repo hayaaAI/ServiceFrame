@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Hayaa.Redis.Client
 {
-    public class RedisFactory
+    internal class RedisFactory
     {
         private static Dictionary<String, IDatabase> redisService = new Dictionary<string, IDatabase>();
         private static Dictionary<String, RedisConfig> redisConfig = null;
@@ -23,7 +23,7 @@ namespace Hayaa.Redis.Client
                 throw new Exception("Redis缺少配置");
             }
         }
-        public IDatabase GetService(String name)
+        public static IDatabase GetService(String name)
         {
             if (redisService.ContainsKey(name)) return redisService[name];
             var config = redisConfig.ContainsKey(name) ? redisConfig[name] : null;
