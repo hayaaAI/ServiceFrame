@@ -6,7 +6,7 @@ namespace Hayaa.ServicePlatform.Client.Config
     internal class ConfigHelper: ConfigTool<ServicePlatformServiceConfig, ServicePlatformServiceRootConfig>
     {
         private static ConfigHelper _instance = new ConfigHelper();
-        private ConfigHelper() : base(DefineTable.ServicePlatformComponetID)
+        private ConfigHelper() : base(DefineTable.ServicePlatformClientComponetID)
         {
 
         }
