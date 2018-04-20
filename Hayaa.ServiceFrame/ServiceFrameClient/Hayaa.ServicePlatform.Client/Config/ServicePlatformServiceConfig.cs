@@ -21,6 +21,14 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// </summary>
         public String AppServiceUrl { set; get; }
         /// <summary>
+        /// 心跳与
+        /// </summary>
+        public String HeartServiceUrl { set; get; }
+        /// <summary>
+        /// 心跳间隔，单位秒
+        /// </summary>
+        public int HeartTimespan { set; get; }
+        /// <summary>
         /// App默认执行用户Id
         /// </summary>
         public int DefaultAppUserId { set; get; }

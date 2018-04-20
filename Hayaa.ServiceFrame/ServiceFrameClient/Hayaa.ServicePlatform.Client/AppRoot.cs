@@ -38,13 +38,13 @@ namespace Hayaa.ServicePlatform.Client
                 int appInstanceId = config.Data.AppInstanceID;
                 var urlParamater = new Dictionary<string, string>();
 
-                HttpRequestHelper httpHelper = new HttpRequestHelper();
+               
                 String response = null;
                 urlParamater.Add("t", config.Data.SecurityToken);
                 String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
                 urlParamater.Add("appservice", strAppService);
                 urlParamater.Add("appinstanceid", appInstanceId.ToString());
-                response = httpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
+                response = HttpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
                 TransactionResult<AppAuthReponse> trAppService = JsonHelper.DeserializeSafe<TransactionResult<AppAuthReponse>>(response);
                 if (trAppService.Code == 0)
                 {
@@ -57,6 +57,8 @@ namespace Hayaa.ServicePlatform.Client
                     AppSeed.Instance.InitConfig();
                     //初始化授权数据
                     SecurityRoot.Init(appId);
+                    //启动心跳
+                    Heart.Isntance.Start(config.Data.SecurityToken, appInstanceId, appId);
                 }
                 else
                 {
