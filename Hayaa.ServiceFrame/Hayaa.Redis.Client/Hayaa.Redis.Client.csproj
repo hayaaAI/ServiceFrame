@@ -16,10 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CacheAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.14" />
     <PackageReference Include="Hayaa.Common" Version="1.0.0.5" />
     <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.6" />
-    <PackageReference Include="PostSharp" Version="5.0.49" />
     <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
   </ItemGroup>
 
