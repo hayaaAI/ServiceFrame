@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iteration1", "iteration1", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.ServiceFrameController", "ServiceFrameController\Hayaa.ServiceFrameController.csproj", "{90BCEE49-F242-4AAB-B766-57437571D265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.Redis.Client", "Hayaa.Redis.Client\Hayaa.Redis.Client.csproj", "{4E7270D9-50E1-402C-9479-C1568EDB0298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.Redis.Client", "ServiceFrameClient\Hayaa.Redis.Client\Hayaa.Redis.Client.csproj", "{41CFA25A-3AA2-4841-BCC5-244F885F713B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +57,10 @@ Global
 		{90BCEE49-F242-4AAB-B766-57437571D265}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90BCEE49-F242-4AAB-B766-57437571D265}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90BCEE49-F242-4AAB-B766-57437571D265}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E7270D9-50E1-402C-9479-C1568EDB0298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E7270D9-50E1-402C-9479-C1568EDB0298}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E7270D9-50E1-402C-9479-C1568EDB0298}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E7270D9-50E1-402C-9479-C1568EDB0298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41CFA25A-3AA2-4841-BCC5-244F885F713B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41CFA25A-3AA2-4841-BCC5-244F885F713B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41CFA25A-3AA2-4841-BCC5-244F885F713B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41CFA25A-3AA2-4841-BCC5-244F885F713B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,7 +74,7 @@ Global
 		{DB0B1D4F-1A48-4E8D-96F1-C0AA94AA5C80} = {7B32E9A7-A18B-4C71-AA9E-C15D59C44059}
 		{1593C5E3-3815-4734-A813-41C878AAEA30} = {C2A08B1B-C08F-4441-AA14-1F9AB9990E5E}
 		{90BCEE49-F242-4AAB-B766-57437571D265} = {EC9B518D-B16D-40D2-A4C4-F33C61CE3106}
-		{4E7270D9-50E1-402C-9479-C1568EDB0298} = {2A456CE7-8164-4303-A21B-DFF854C93B9F}
+		{41CFA25A-3AA2-4841-BCC5-244F885F713B} = {2A456CE7-8164-4303-A21B-DFF854C93B9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13B11753-87BD-4E59-A0A4-EF21A7784460}

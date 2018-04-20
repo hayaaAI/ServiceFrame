@@ -26,7 +26,7 @@ namespace Hayaa.Redis.Client
         ReadWrite = 2      
     }
     [Serializable]
-   public class CacheAttribute : PostSharp.Aspects.OnMethodBoundaryAspect
+   public class CacheAttribute : Attribute
     {
         /// <summary>
         /// 缓存有效时长,单位：秒
