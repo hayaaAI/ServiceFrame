@@ -19,7 +19,7 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// <summary>
         /// App功能验证收集与验证地址
         /// </summary>
-        public String AppServiceUrl { set; get; }
+        public String AppAuthServiceUrl { set; get; }
         /// <summary>
         /// 心跳与
         /// </summary>
@@ -32,6 +32,7 @@ namespace Hayaa.ServicePlatform.Client.Config
         /// App默认执行用户Id
         /// </summary>
         public int DefaultAppUserId { set; get; }
+      
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }
     }

@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0.5</Version>
+    <Version>1.0.0.6</Version>
     <Authors>hayaaAI</Authors>
     <Company>hayaa</Company>
     <Product>hayaaAI</Product>
@@ -19,7 +19,7 @@
   <ItemGroup>
     <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.14" />
     <PackageReference Include="Hayaa.Common" Version="1.0.0.5" />
-    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.6" />
+    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.7" />
     <PackageReference Include="Hayaa.Security.Client" Version="1.0.0.4" />
   </ItemGroup>
 

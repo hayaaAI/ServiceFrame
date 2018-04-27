@@ -34,6 +34,12 @@ namespace Hayaa.ServicePlatform.Client
             var config = AppSeed.GetAppLocalConfig();
             if (config.ActionResult)
             {
+                if (config.Data.IsRemoteConfigRoot)//远程配置服务不执行App验证和实例获取
+                {
+                    AppSeed.Instance.InitConfig();
+                    return;
+                }
+               
                 int appId = config.Data.AppID;
                 int appInstanceId = config.Data.AppInstanceID;
                 var urlParamater = new Dictionary<string, string>();
@@ -44,7 +50,7 @@ namespace Hayaa.ServicePlatform.Client
                 String strAppService = JsonHelper.Serlaize<List<AppService>>(GetAppService(appId));
                 urlParamater.Add("appservice", strAppService);
                 urlParamater.Add("appinstanceid", appInstanceId.ToString());
-                response = HttpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppServiceUrl, urlParamater);
+                response = HttpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppAuthServiceUrl, urlParamater);
                 TransactionResult<AppAuthReponse> trAppService = JsonHelper.DeserializeSafe<TransactionResult<AppAuthReponse>>(response);
                 if (trAppService.Code == 0)
                 {

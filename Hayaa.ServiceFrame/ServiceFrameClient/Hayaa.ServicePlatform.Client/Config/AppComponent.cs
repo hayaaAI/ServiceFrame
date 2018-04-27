@@ -5,13 +5,13 @@ using System.Text;
 namespace Hayaa.ServicePlatform.Client.Config
 {
     [Serializable]
-    class AppComponent
+    internal class AppComponent
     {
-        public int ComponentInstanceId
-        {
-            get;
-            set;
-        }
+        //public int ComponentInstanceId
+        //{
+        //    get;
+        //    set;
+        //}
         /// <summary>
         /// 程序用户ID
         /// </summary>	
@@ -29,8 +29,8 @@ namespace Hayaa.ServicePlatform.Client.Config
             set;
         }
         /// <summary>
-        /// 服务接口实现类完全限定名
-        /// 形式："类名, 程序集名, Version=1.0.0, Culture=neutral, PublicKeyToken=null"
+        /// 服务接口实现类完全限定名,而且不能有空格，否则无法识别
+        /// 形式："完全类名,程序集名,Version=1.0.0,Culture=neutral,PublicKeyToken=null"
         /// </summary>	
         public string ComponentServiceCompeleteName
         {
