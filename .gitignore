@@ -261,3 +261,5 @@ __pycache__/
 *.pyc
 /Hayaa.ServiceFrame/XUnitTestForGogsHttpService
 /Hayaa.ServiceFrame/XUnitTestForRemoteConfig
+/Hayaa.ServiceFrame/XUnitTestProject
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/config/app.json

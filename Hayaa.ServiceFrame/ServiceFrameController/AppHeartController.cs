@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hayaa.ServiceFrameController
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class AppHeartController : Controller
     {
       /// <summary>
@@ -17,7 +17,7 @@ namespace Hayaa.ServiceFrameController
       /// </summary>
       /// <param name="appid"></param>
       /// <returns></returns>
-        [HttpPost("{appid}")]
+        [HttpPost("{appid?}")]
         public TransactionResult<List<int>> HeartAction(int appid)
         {
             TransactionResult<List<int>> result = new TransactionResult<List<int>>();

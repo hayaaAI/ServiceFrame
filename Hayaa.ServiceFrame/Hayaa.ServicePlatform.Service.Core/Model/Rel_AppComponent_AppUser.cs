@@ -12,6 +12,6 @@ namespace Hayaa.ServicePlatform.Service
         public int AppId { set; get; }
         public int AppUserId { set; get; }
         public int AppComponentId { set; get; }
-        public DateTime? CreateTime { set; get; }
+     
     }
 }

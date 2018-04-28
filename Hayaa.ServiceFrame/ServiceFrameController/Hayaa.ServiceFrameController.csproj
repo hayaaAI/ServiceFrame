@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hayaa.ServicePlatform.Client" Version="1.0.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hayaa.ServicePlatform.Service.Core\Hayaa.ServicePlatform.Service.Core.csproj" />
     <ProjectReference Include="..\Hayaa.ServicePlatform\Hayaa.ServicePlatform.Service.csproj" />
-    <ProjectReference Include="..\ServiceFrameClient\Hayaa.ServicePlatform.Client\Hayaa.ServicePlatform.Client.csproj" />
   </ItemGroup>
 
 </Project>

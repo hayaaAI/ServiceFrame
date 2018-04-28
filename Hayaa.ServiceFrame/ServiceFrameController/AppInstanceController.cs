@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hayaa.ServiceFrameController
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class AppInstanceController : Controller
     {
         private AppInstanceService service = PlatformServiceFactory.Instance.CreateService<AppInstanceService>(AppRoot.GetDefaultAppUser());
-        [HttpPost("{appid}")]
+        [HttpPost("{appid?}")]
         public TransactionResult<int> Add(int appid)
         {
             TransactionResult<int> result = new TransactionResult<int>();

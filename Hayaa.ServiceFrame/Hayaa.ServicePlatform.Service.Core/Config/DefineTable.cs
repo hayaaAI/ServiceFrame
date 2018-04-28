@@ -10,6 +10,6 @@ namespace Hayaa.ServicePlatform.Service.Config
         /// ServicePlatform组件的ID
         /// </summary>
         public readonly static int ServicePlatformComponetID = 10003;
-        internal readonly static string DatabaseName="RemoteConfig";
+        internal readonly static string DatabaseName= "RemoteConfig";
     }
 }
