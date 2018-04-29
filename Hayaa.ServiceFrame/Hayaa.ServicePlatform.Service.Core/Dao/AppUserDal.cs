@@ -15,8 +15,8 @@ namespace Hayaa.ServicePlatform.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppUser info)
         {
-            string sql = "insert into AppUser(Name,Title) values(@Name,@Title)";
-            return Insert<AppUser>(con, sql, info);
+            string sql = "insert into AppUser(Name,Title) values(@Name,@Title);select @@IDENTITY";
+            return InsertWithReturnID<AppUser,int>(con, sql, info);
         }
         internal static int Update(AppUser info)
         {
@@ -40,7 +40,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         }
         internal static GridPager<AppUser> GetGridPager(GridPagerPamater<AppUserSearchPamater> pamater)
         {
-            string sql = "select SQL_CALC_FOUND_ROWS * from AppUser " + pamater.SearchPamater.CreateWhereSql() + " limit @Start,*@PageSize;select FOUND_ROWS();";
+            string sql = "select SQL_CALC_FOUND_ROWS * from AppUser " + pamater.SearchPamater.CreateWhereSql() + " limit @Start,@PageSize;select FOUND_ROWS();";
             pamater.SearchPamater.Start = (pamater.Current - 1) * pamater.PageSize;
             pamater.SearchPamater.PageSize = pamater.PageSize;
             return GetGridPager<AppUser>(con, sql, pamater.PageSize, pamater.Current, pamater.SearchPamater);

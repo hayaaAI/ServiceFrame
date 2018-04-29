@@ -24,7 +24,7 @@ namespace Hayaa.ServicePlatform.Service
         /// <summary>
         /// 组件ID
         /// </summary>		
-        public int ComponetId
+        public int ComponentId
         {
             get;
             set;

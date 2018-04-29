@@ -31,26 +31,26 @@ namespace Hayaa.ServicePlatform.Service
             }
             return sql;
         }
-        public int? ComponetId { set; get; }
-        public List<int?> ComponetIdList { set; get; }
-        public int? ComponetIdMax { set; get; }
-        public int? ComponetIdMin { set; get; }
-        public void SetComponetId(int? max, int? min) { this.ComponetIdMax = max; this.ComponetIdMin = min; this.ComponetIdPOT = PamaterOperationType.Between; }
-        private PamaterOperationType ComponetIdPOT;
-        public void SetComponetId(int? info, PamaterOperationType pot) { this.ComponetId = info; this.ComponetIdPOT = pot; }
-        private String GetComponetIdSqlForSharp()
+        public int? ComponentId { set; get; }
+        public List<int?> ComponentIdList { set; get; }
+        public int? ComponentIdMax { set; get; }
+        public int? ComponentIdMin { set; get; }
+        public void SetComponentId(int? max, int? min) { this.ComponentIdMax = max; this.ComponentIdMin = min; this.ComponentIdPOT = PamaterOperationType.Between; }
+        private PamaterOperationType ComponentIdPOT;
+        public void SetComponentId(int? info, PamaterOperationType pot) { this.ComponentId = info; this.ComponentIdPOT = pot; }
+        private String GetComponentIdSqlForSharp()
         {
-            String sql = ""; switch (ComponetIdPOT)
+            String sql = ""; switch (ComponentIdPOT)
             {
-                case PamaterOperationType.Between: sql = "ComponetId between @ComponetIdMin to @ComponetIdMax"; break;
-                case PamaterOperationType.StringContains: sql = "ComponetId like '%@ComponetId%'"; break;
-                case PamaterOperationType.Equal: sql = "ComponetId=@ComponetId"; break;
-                case PamaterOperationType.GreaterEqual: sql = "ComponetId>=@ComponetId"; break;
-                case PamaterOperationType.GreaterThan: sql = "ComponetId>@ComponetId"; break;
-                case PamaterOperationType.LessEqual: sql = "ComponetId<=@ComponetId"; break;
-                case PamaterOperationType.LessThan: sql = "ComponetId<=@ComponetId"; break;
-                case PamaterOperationType.In: sql = "ComponetId in(" + String.Join(",", this.ComponetIdList) + ")"; break;
-                case PamaterOperationType.StringIn: sql = "ComponetId in('" + String.Join("','", this.ComponetIdList) + "')"; break;
+                case PamaterOperationType.Between: sql = "ComponentId between @ComponentIdMin to @ComponentIdMax"; break;
+                case PamaterOperationType.StringContains: sql = "ComponentId like '%@ComponentId%'"; break;
+                case PamaterOperationType.Equal: sql = "ComponentId=@ComponentId"; break;
+                case PamaterOperationType.GreaterEqual: sql = "ComponentId>=@ComponentId"; break;
+                case PamaterOperationType.GreaterThan: sql = "ComponentId>@ComponentId"; break;
+                case PamaterOperationType.LessEqual: sql = "ComponentId<=@ComponentId"; break;
+                case PamaterOperationType.LessThan: sql = "ComponentId<=@ComponentId"; break;
+                case PamaterOperationType.In: sql = "ComponentId in(" + String.Join(",", this.ComponentIdList) + ")"; break;
+                case PamaterOperationType.StringIn: sql = "ComponentId in('" + String.Join("','", this.ComponentIdList) + "')"; break;
             }
             return sql;
         }

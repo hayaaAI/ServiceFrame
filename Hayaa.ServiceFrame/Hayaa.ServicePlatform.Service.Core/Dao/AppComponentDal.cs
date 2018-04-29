@@ -15,12 +15,12 @@ namespace Hayaa.ServicePlatform.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppComponent info)
         {
-            string sql = "insert into AppComponent(ComponetId,ComponentServiceCompeleteName,ComponentServiceName,ComponentAssemblyName,ComponentAssemblyFileName,ComponentAssemblyFileStorePath,AssemblyVersion) values(@ComponetId,@ComponentServiceCompeleteName,@ComponentServiceName,@ComponentAssemblyName,@ComponentAssemblyFileName,@ComponentAssemblyFileStorePath,@AssemblyVersion)";
-            return Insert<AppComponent>(con, sql, info);
+            string sql = "insert into AppComponent(ComponentId,ComponentServiceCompeleteName,ComponentServiceName,ComponentAssemblyName,ComponentAssemblyFileName,ComponentAssemblyFileStorePath,AssemblyVersion) values(@ComponentId,@ComponentServiceCompeleteName,@ComponentServiceName,@ComponentAssemblyName,@ComponentAssemblyFileName,@ComponentAssemblyFileStorePath,@AssemblyVersion);select @@IDENTITY;";
+            return InsertWithReturnID<AppComponent,int>(con, sql, info);
         }
         internal static int Update(AppComponent info)
         {
-            string sql = "update AppComponent set ComponetId=@ComponetId,ComponentServiceCompeleteName=@ComponentServiceCompeleteName,ComponentServiceName=@ComponentServiceName,ComponentAssemblyName=@ComponentAssemblyName,ComponentAssemblyFileName=@ComponentAssemblyFileName,ComponentAssemblyFileStorePath=@ComponentAssemblyFileStorePath,AssemblyVersion=@AssemblyVersion where AppComponentId=@AppComponentId";
+            string sql = "update AppComponent set ComponentId=@ComponentId,ComponentServiceCompeleteName=@ComponentServiceCompeleteName,ComponentServiceName=@ComponentServiceName,ComponentAssemblyName=@ComponentAssemblyName,ComponentAssemblyFileName=@ComponentAssemblyFileName,ComponentAssemblyFileStorePath=@ComponentAssemblyFileStorePath,AssemblyVersion=@AssemblyVersion where AppComponentId=@AppComponentId";
             return Update<AppComponent>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)

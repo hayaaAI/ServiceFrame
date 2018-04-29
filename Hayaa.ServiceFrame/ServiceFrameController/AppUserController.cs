@@ -1,32 +1,30 @@
 ﻿using Hayaa.BaseModel;
 using Hayaa.BaseModel.Model;
-using Hayaa.ServiceFrameController.Model;
 using Hayaa.ServicePlatform.Client;
 using Hayaa.ServicePlatform.Service;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Hayaa.ServiceFrameController
 {
     [Route("api/[controller]/[action]")]
-    public partial class AppComponentController : Controller
+    public  class AppUserController: Controller
     {
-        private AppComponentService service = PlatformServiceFactory.Instance.CreateService<AppComponentService>(AppRoot.GetDefaultAppUser());
+        private AppUserService service = new AppUserServer();// PlatformServiceFactory.Instance.CreateService<AppUserService>(AppRoot.GetDefaultAppUser());
 
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<GridPager<AppComponent>> GetAppComponentPager(int page, int size)
+        public TransactionResult<GridPager<AppUser>> GetAppUserPager(int page, int size)
         {
-            TransactionResult<GridPager<AppComponent>> result = new TransactionResult<GridPager<AppComponent>>();
-            var serviceResult = service.GetPager(new BaseModel.GridPagerPamater<AppComponentSearchPamater>()
+            TransactionResult<GridPager<AppUser>> result = new TransactionResult<GridPager<AppUser>>();
+            var serviceResult = service.GetPager(new BaseModel.GridPagerPamater<AppUserSearchPamater>()
             {
                 Current = page,
                 PageSize = size,
-                SearchPamater = new AppComponentSearchPamater()
+                SearchPamater = new AppUserSearchPamater()
             });
             if (serviceResult.ActionResult & serviceResult.HavingData)
             {
@@ -41,27 +39,14 @@ namespace Hayaa.ServiceFrameController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<AppComponenView> GetAppComponent(int id)
+        public TransactionResult<AppUser> GetAppUser(int id)
         {
-            TransactionResult<AppComponenView> result = new TransactionResult<AppComponenView>();
+            TransactionResult<AppUser> result = new TransactionResult<AppUser>();
             var serviceResult = service.Get(id);
             if (serviceResult.ActionResult & serviceResult.HavingData)
             {
-                var componentInterfaceResult = service.GetAppComponentInterfaces(id);
-                result.Data = new AppComponenView()
-                {
-                    AppComponentId = serviceResult.Data.AppComponentId,
-                    AssemblyVersion = serviceResult.Data.AssemblyVersion,
-                    ComponentAssemblyFileName = serviceResult.Data.ComponentAssemblyFileName,
-                    ComponentAssemblyFileStorePath = serviceResult.Data.ComponentAssemblyFileStorePath,
-                    ComponentAssemblyName = serviceResult.Data.ComponentAssemblyName,
-                    ComponentId = serviceResult.Data.ComponentId,
-                    ComponentServiceCompeleteName = serviceResult.Data.ComponentServiceCompeleteName,
-                    ComponentServiceName = serviceResult.Data.ComponentServiceName,
-                    AppUserId = 0,
-                    ComponentInterface = String.Join(",", componentInterfaceResult.Data),
 
-                };
+                result.Data = serviceResult.Data;
             }
             else
             {
@@ -72,16 +57,11 @@ namespace Hayaa.ServiceFrameController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<AppComponent> AddAppComponent(AppComponenView info)
+        public TransactionResult<AppUser> AddAppUser(AppUser info)
         {
-            TransactionResult<AppComponent> result = new TransactionResult<AppComponent>();
-            if (String.IsNullOrEmpty(info.ComponentInterface))
-            {
-                result.Code = 101;
-                result.Message = "缺少接口参数";
-                return result;
-            }
-            var serviceResult = service.Create(info, info.ComponentInterface.Split(",").ToList());
+            TransactionResult<AppUser> result = new TransactionResult<AppUser>();
+           
+            var serviceResult = service.Create(info);
 
             if (serviceResult.ActionResult & serviceResult.HavingData)
             {
@@ -96,7 +76,7 @@ namespace Hayaa.ServiceFrameController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<Boolean> EditAppComponent(AppComponenView info)
+        public TransactionResult<Boolean> EditAppUser(AppUser info)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = service.UpdateByID(info);
@@ -113,7 +93,7 @@ namespace Hayaa.ServiceFrameController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<Boolean> DeleteAppComponent(int id)
+        public TransactionResult<Boolean> DeleteAppUser(int id)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = service.DeleteByID(new List<int>() { id });
