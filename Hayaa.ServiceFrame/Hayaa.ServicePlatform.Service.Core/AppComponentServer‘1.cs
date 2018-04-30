@@ -74,6 +74,14 @@ namespace Hayaa.ServicePlatform.Service
         {
             var r = new FunctionListResult<AppComponent>();
             r.Data = AppComponentDal.GetList(appId, name);
-            return r; }
+            return r;
+        }
+        public FunctionListResult<AppComponent> GetAppComponentListWithAppUser(int appId, int componentId)
+        {
+            var r = new FunctionListResult<AppComponent>();
+            r.Data = AppComponentDal.GetList(appId,componentId);
+            return r;
+        }
     }
+
 }

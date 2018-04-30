@@ -15,5 +15,10 @@ namespace Hayaa.ServicePlatform.Service.Dao
             string sql = "select ac.* from AppComponent as ac inner join Rel_AppComponent_AppUser as racau on ac.AppComponentId=racau.AppComponentId and racau.AppId=@AppId where ac.Name like '%@Name%'";
             return GetList<AppComponent>(con, sql, new { AppId=appId,Name=name });
         }
+        internal static List<AppComponent> GetList(int appId, int componentId)
+        {
+            string sql = "select ac.*,racau.AppUserId from AppComponent as ac inner join Rel_AppComponent_AppUser as racau on ac.AppComponentId=racau.AppComponentId where racau.AppId=@AppId and ac.ComponentId=@ComponentId";
+            return GetList<AppComponent>(con, sql, new { AppId = appId, ComponentId = componentId });
+        }
     }
 }

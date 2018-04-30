@@ -35,5 +35,6 @@ namespace Hayaa.ServicePlatform.Service
        /// <param name="name">组件名称</param>
        /// <returns></returns>
         FunctionListResult<AppComponent> GetList(int appId,String name);
+        FunctionListResult<AppComponent> GetAppComponentListWithAppUser(int appId, int componentId);
     }
 }

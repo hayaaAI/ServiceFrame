@@ -14,7 +14,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(Rel_AppComponent_AppUser info)
         {
-            string sql = "insert into Rel_AppComponent_AppUser(Id,AppUserId,AppComponentId) values(@Id,@AppUserId,@AppComponentId)";
+            string sql = "insert into Rel_AppComponent_AppUser(Id,AppId,AppUserId,AppComponentId) values(@Id,@AppId,@AppUserId,@AppComponentId)";
             return Insert<Rel_AppComponent_AppUser>(con, sql, info);
         }
         internal static int Update(Rel_AppComponent_AppUser info)
