@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Hayaa.ServiceFrame/XUnitTestForGogsHttpService
+/Hayaa.ServiceFrame/XUnitTestForRemoteConfig
+/Hayaa.ServiceFrame/XUnitTestProject
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/config/app.json
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/config/app_deamo.json
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/Properties/PublishProfiles/FolderProfile.pubxml
