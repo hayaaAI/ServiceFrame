@@ -28,12 +28,13 @@ namespace Hayaa.ServicePlatform.Service
         /// <param name="appComponentId">组件Id</param>
         /// <returns></returns>
         FunctionOpenResult<List<String>> GetAppComponentInterfaces(int appComponentId);
-       /// <summary>
-       /// 获取App下的组件列表
-       /// </summary>
-       /// <param name="appId">AppId</param>
-       /// <param name="name">组件名称</param>
-       /// <returns></returns>
+        FunctionOpenResult<Dictionary<int,List<String>>> GetAppComponentInterfacesByIds(List<int> appComponentIds);
+        /// <summary>
+        /// 获取App下的组件列表
+        /// </summary>
+        /// <param name="appId">AppId</param>
+        /// <param name="name">组件名称</param>
+        /// <returns></returns>
         FunctionListResult<AppComponent> GetList(int appId,String name);
         FunctionListResult<AppComponent> GetAppComponentListWithAppUser(int appId, int componentId);
     }

@@ -263,3 +263,5 @@ __pycache__/
 /Hayaa.ServiceFrame/XUnitTestForRemoteConfig
 /Hayaa.ServiceFrame/XUnitTestProject
 /Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/config/app.json
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/config/app_deamo.json
+/Hayaa.ServiceFrame/Hayaa.ServiceFrameSite/Properties/PublishProfiles/FolderProfile.pubxml

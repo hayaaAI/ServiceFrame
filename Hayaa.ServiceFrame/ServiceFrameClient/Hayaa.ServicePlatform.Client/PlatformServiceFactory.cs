@@ -32,20 +32,15 @@ namespace Hayaa.ServicePlatform.Client
         {
             if (appServiceConfigs != null)
             {
-                var userData= appServiceConfigs.Select(a => a.AppUserId).ToList();
-                List<int> appUserIDs = new List<int>();
-                userData.ForEach(list => {
-                    appUserIDs.AddRange(list);
-                });
-                appUserIDs = appUserIDs.Distinct().ToList();
-                if (appUserIDs.Count>0)
+                var appUserIDs = appServiceConfigs.Select(a => a.AppUserId).Distinct().ToList();
+                if (appUserIDs != null)
                 {
                     appUserIDs.ForEach(a =>
                     {
                         if (!_serviceData.ContainsKey(a))
                         {
                             _serviceData.Add(a, new Dictionary<string, AppComponent>());
-                            var temp = appServiceConfigs.FindAll(b => b.AppUserId.Contains(a));
+                            var temp = appServiceConfigs.FindAll(b => b.AppUserId == a);
                             //一个实现类可能基于多个接口，此种模式对于基于一个接口实现了多个组件，并且组件用户相同情况不支持
                             temp.ForEach(c => {
                                 c.ComponentInterface.ForEach(ci => {

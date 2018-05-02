@@ -3,7 +3,6 @@ using Hayaa.BaseModel.Model;
 using Hayaa.ServiceFrameController.Model;
 using Hayaa.ServicePlatform.Client;
 using Hayaa.ServicePlatform.Service;
-using Hayaa.ServicePlatform.Service.Core;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,8 +15,8 @@ namespace Hayaa.ServiceFrameController
     [Route("api/[controller]/[action]")]
     public partial class AppComponentController : Controller
     {
-        private AppComponentService appComponentService = new AppComponentServer();// PlatformServiceFactory.Instance.CreateService<AppComponentService>(AppRoot.GetDefaultAppUser());
-        private AppService appService = new AppServer();// PlatformServiceFactory.Instance.CreateService<AppService>(AppRoot.GetDefaultAppUser());
+        private AppComponentService appComponentService =PlatformServiceFactory.Instance.CreateService<AppComponentService>(AppRoot.GetDefaultAppUser());
+        private AppService appService =PlatformServiceFactory.Instance.CreateService<AppService>(AppRoot.GetDefaultAppUser());
 
         [HttpPost]
         [EnableCors("any")]
@@ -43,13 +42,25 @@ namespace Hayaa.ServiceFrameController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<List<AppComponent>> GetAppComponentList(int appId, int componentId)
+        public TransactionResult<List<AppComponenJsonView>> GetAppComponentList(int appId, int componentId)
         {
-            TransactionResult<List<AppComponent>> result = new TransactionResult<List<AppComponent>>();
+            TransactionResult<List<AppComponenJsonView>> result = new TransactionResult<List<AppComponenJsonView>>();
             var serviceResult = appComponentService.GetAppComponentListWithAppUser(appId,componentId);
             if (serviceResult.ActionResult & serviceResult.HavingData)
             {
-                result.Data = serviceResult.Data;
+                var dicResult = appComponentService.GetAppComponentInterfacesByIds(serviceResult.Data.Select(a => a.AppComponentId).ToList());
+                result.Data = serviceResult.Data.Select(a=> new AppComponenJsonView() {
+                    AppComponentId = a.AppComponentId,
+                    AssemblyVersion = a.AssemblyVersion,
+                    ComponentAssemblyFileName = a.ComponentAssemblyFileName,
+                    ComponentAssemblyFileStorePath = a.ComponentAssemblyFileStorePath,
+                    ComponentAssemblyName = a.ComponentAssemblyName,
+                    ComponentId = a.ComponentId,
+                    ComponentServiceCompeleteName = a.ComponentServiceCompeleteName,
+                    ComponentServiceName = a.ComponentServiceName,
+                    AppUserId =a.AppUserId,
+                    ComponentInterface = dicResult.Data[a.AppComponentId],
+                }).ToList();
             }
             else
             {
@@ -118,7 +129,7 @@ namespace Hayaa.ServiceFrameController
         public TransactionResult<Boolean> EditAppComponent(AppComponenView info)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
-            var serviceResult = appComponentService.UpdateByID(info);
+            var serviceResult = appComponentService.UpdateByID(info, info.ComponentInterface.Split(",").ToList());
             if (serviceResult.ActionResult)
             {
                 result.Data = serviceResult.Data;

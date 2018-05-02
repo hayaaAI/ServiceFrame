@@ -12,10 +12,18 @@ namespace Hayaa.ServicePlatform.Client.Config
         //    get;
         //    set;
         //}
+        ///// <summary>
+        ///// 程序用户ID灰度发布需要的模式TODO
+        ///// </summary>	
+        //public List<int> AppUserId
+        //{
+        //    get;
+        //    set;
+        //}
         /// <summary>
         /// 程序用户ID
         /// </summary>	
-        public List<int> AppUserId
+        public int AppUserId
         {
             get;
             set;

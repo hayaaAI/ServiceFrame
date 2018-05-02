@@ -12,7 +12,7 @@ namespace Hayaa.ServicePlatform.Service.Dao
 {
     internal partial class AppComponentDal : CommonDal
     {
-        private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
+        private static String con =  ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppComponent info)
         {
             string sql = "insert into AppComponent(ComponentId,ComponentServiceCompeleteName,ComponentServiceName,ComponentAssemblyName,ComponentAssemblyFileName,ComponentAssemblyFileStorePath,AssemblyVersion) values(@ComponentId,@ComponentServiceCompeleteName,@ComponentServiceName,@ComponentAssemblyName,@ComponentAssemblyFileName,@ComponentAssemblyFileStorePath,@AssemblyVersion);select @@IDENTITY;";

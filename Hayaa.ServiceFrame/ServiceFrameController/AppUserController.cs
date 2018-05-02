@@ -13,7 +13,7 @@ namespace Hayaa.ServiceFrameController
     [Route("api/[controller]/[action]")]
     public  class AppUserController: Controller
     {
-        private AppUserService service = new AppUserServer();// PlatformServiceFactory.Instance.CreateService<AppUserService>(AppRoot.GetDefaultAppUser());
+        private AppUserService service =PlatformServiceFactory.Instance.CreateService<AppUserService>(AppRoot.GetDefaultAppUser());
 
         [HttpPost]
         [EnableCors("any")]

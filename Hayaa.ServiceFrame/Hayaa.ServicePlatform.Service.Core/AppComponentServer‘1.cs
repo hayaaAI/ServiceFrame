@@ -70,6 +70,24 @@ namespace Hayaa.ServicePlatform.Service
             }
             return r;
         }
+        public FunctionOpenResult<Dictionary<int, List<String>>> GetAppComponentInterfacesByIds(List<int> appComponentIds)
+        {
+            var r = new FunctionOpenResult<Dictionary<int, List<String>>>() {  };
+
+            var interfaces = AppComponentInterfaceDal.GetListByAppComponentIds(appComponentIds);
+            if (interfaces != null)
+            {
+                r.Data = new Dictionary<int, List<string>>();
+                interfaces.ForEach(i => {
+                    if (!r.Data.ContainsKey(i.AppComponentId))
+                    {
+                        r.Data.Add(i.AppComponentId,new List<string>());
+                    }
+                    r.Data[i.AppComponentId].Add(i.ComponentInterface);
+                });
+            }
+            return r;
+        }
         public FunctionListResult<AppComponent> GetList(int appId, string name)
         {
             var r = new FunctionListResult<AppComponent>();
@@ -79,7 +97,7 @@ namespace Hayaa.ServicePlatform.Service
         public FunctionListResult<AppComponent> GetAppComponentListWithAppUser(int appId, int componentId)
         {
             var r = new FunctionListResult<AppComponent>();
-            r.Data = AppComponentDal.GetList(appId,componentId);
+            r.Data= AppComponentDal.GetList(appId,componentId);           
             return r;
         }
     }

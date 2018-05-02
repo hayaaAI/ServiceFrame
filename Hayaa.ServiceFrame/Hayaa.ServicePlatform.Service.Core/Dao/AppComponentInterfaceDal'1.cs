@@ -17,6 +17,10 @@ namespace Hayaa.ServicePlatform.Service.Dao
             string sql = "select * from AppComponentInterface where AppComponentId=@AppComponentId";
             return GetList<AppComponentInterface>(con, sql, new { AppComponentId = appComponentId });
         }
-
+        internal static List<AppComponentInterface> GetListByAppComponentIds(List<int> appComponentId)
+        {
+            string sql = "select * from AppComponentInterface where AppComponentId in @AppComponentId";
+            return GetList<AppComponentInterface>(con, sql, new { AppComponentId = appComponentId });
+        }
     }
 }

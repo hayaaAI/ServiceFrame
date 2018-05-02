@@ -4,7 +4,7 @@ using System.Text;
 using Hayaa.BaseModel;
 using Hayaa.ServicePlatform.Service.Dao;
 
-namespace Hayaa.ServicePlatform.Service.Core
+namespace Hayaa.ServicePlatform.Service
 {
     public class AppServer : AppService
     {
