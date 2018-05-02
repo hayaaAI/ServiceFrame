@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RemoteConfig\Seed\Netcore\Hayaa.ConfigSeed.Netcore\Hayaa.ConfigSeed.Netcore.csproj" />
     <ProjectReference Include="..\ServiceFrameController\Hayaa.ServiceFrameController.csproj" />
   </ItemGroup>
 
