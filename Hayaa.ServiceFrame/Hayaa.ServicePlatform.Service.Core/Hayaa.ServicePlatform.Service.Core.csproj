@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.11" />
+    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.12" />
     <PackageReference Include="Hayaa.DataAccess" Version="1.0.0.10" />
   </ItemGroup>
 
