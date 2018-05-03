@@ -26,8 +26,8 @@
     <Content Update="appconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="config\app_deamo.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    <Content Update="config\app_dmo.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="hosting.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
