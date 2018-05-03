@@ -1,6 +1,6 @@
 //本地程序配置文件示范文件
 {
-  "SeedServerUrl": "http://192.168.31.59:10080/api/config/SendConfig",
+  "SeedServerUrl": "http://test.remoteconfig.xieqj.net/api/config/SendConfig",
   "LocalConfigDirectoryPath": "~/config",
   "IsVirtualPath": "true",
   "SecurityToken": "",
