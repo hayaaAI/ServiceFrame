@@ -9,7 +9,7 @@ class ConfigHelper extends ConfigTool<ServicePlatformServiceConfig, ServicePlatf
                         Class<ServicePlatformServiceRootConfig> appRootConfigType) {
         super(componentID, componentConfigType, appRootConfigType);
     }
-    public static ConfigHelper get_instance() {
+    public static ConfigHelper instance() {
         return _instance;
     }
 
