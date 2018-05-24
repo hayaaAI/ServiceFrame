@@ -1,14 +1,14 @@
 //本地程序配置文件示范文件
 {
-  "SeedServerUrl": "http://test.remoteconfig.xieqj.net/api/config/SendConfig",
+  "SeedServerUrl": "http://dev.remoteconfig.xieqj.net:10080/api/config/SendConfig",
   "LocalConfigDirectoryPath": "~/config",
-  "IsVirtualPath": "true",
+  "IsVirtualPath": true,
   "SecurityToken": "",
   "AppID": "7",
   "AppInstanceID": 0,
   "AppConfigSolutionID": "6e66e235-d0ef-47f1-bdb0-5df07e61255a",
   "AppConfigFileName": "app.json",
   "Version": 1,
-  "IsRemote": "true",
+  "IsRemote": true,
   "IsRemoteConfigRoot": true
 }

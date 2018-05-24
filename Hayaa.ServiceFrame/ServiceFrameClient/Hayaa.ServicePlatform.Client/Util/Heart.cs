@@ -18,7 +18,7 @@ namespace Hayaa.ServicePlatform.Client.Util
         {
 
         }
-        internal static Heart Isntance { get => _isntance; }
+        internal static Heart Instance { get => _isntance; }
         private static Timer g_timer = null;
         private void HeartAction(object state)
         {
@@ -57,7 +57,7 @@ namespace Hayaa.ServicePlatform.Client.Util
             g_token = token;
             g_appInstanceId = appInstanceId;
             g_appId = appId;
-            g_timer = new Timer(HeartAction, null, ConfigHelper.Instance.GetComponentConfig().HeartTimespan * 1000, 5 * 60 * 1000);
+            g_timer = new Timer(HeartAction, null, ConfigHelper.Instance.GetComponentConfig().HeartTimespan * 1000*5, 60 * 1000);
         }
     }
 }

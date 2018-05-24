@@ -34,7 +34,7 @@ namespace Hayaa.ServicePlatform.Client
             var config = AppSeed.GetAppLocalConfig();
             if (config.ActionResult)
             {
-                if (config.Data.IsRemoteConfigRoot)//远程配置服务不执行App验证和实例获取
+                if (config.Data.IsRemoteConfigRoot)//远程配置服务和框架服务不执行App验证和实例获取
                 {
                     AppSeed.Instance.InitConfig();
                     return;
@@ -64,7 +64,7 @@ namespace Hayaa.ServicePlatform.Client
                     //初始化授权数据
                     SecurityRoot.Init(appId);
                     //启动心跳
-                    Heart.Isntance.Start(config.Data.SecurityToken, appInstanceId, appId);
+                    Heart.Instance.Start(config.Data.SecurityToken, appInstanceId, appId);
                 }
                 else
                 {
