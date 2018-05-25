@@ -1,8 +1,7 @@
 package hayaa.serviceplatform.client;
 
 import Hayaa.ConfigSeed.AppSeed;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
+import com.fasterxml.jackson.core.type.TypeReference;
 import hayaa.basemodel.model.TransactionResult;
 import hayaa.common.HttpHelper;
 import hayaa.common.JsonHelper;
@@ -28,7 +27,7 @@ class Heart {
         urlParamater.put("appid", g_appId.toString());
         response = HttpHelper.Transaction(ConfigHelper.instance().GetComponentConfig().getHeartServiceUrl(), urlParamater, "post");
         try {
-            TransactionResult<List<Integer>> serviceResult =(TransactionResult<List<Integer>>)JSON.parseObject(response, new TypeReference<TransactionResult<List<Integer>>>() {
+            TransactionResult<List<Integer>> serviceResult =JsonHelper.DeserializeComplexObject(response, new TypeReference<TransactionResult<List<Integer>>>() {
             });
             if (serviceResult.getCode() == 0) {
 

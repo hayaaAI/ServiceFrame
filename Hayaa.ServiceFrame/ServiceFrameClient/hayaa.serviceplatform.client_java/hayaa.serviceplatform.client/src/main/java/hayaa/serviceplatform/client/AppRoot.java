@@ -2,8 +2,8 @@ package hayaa.serviceplatform.client;
 
 import Hayaa.ConfigSeed.AppLocalConfig;
 import Hayaa.ConfigSeed.AppSeed;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import hayaa.basemodel.model.FunctionOpenResult;
 import hayaa.basemodel.model.TransactionResult;
 import hayaa.common.HttpHelper;
@@ -37,7 +37,7 @@ public class AppRoot {
             urlParamater.put("appservice", strAppService);
             urlParamater.put("appinstanceid", appInstanceId.toString());
             response = HttpHelper.Transaction(ConfigHelper.instance().GetComponentConfig().getAppAuthServiceUrl(), urlParamater,"post");
-            TransactionResult<AppAuthReponse> trAppService = (TransactionResult<AppAuthReponse>)JSON.parseObject(response, new TypeReference<TransactionResult<AppAuthReponse>>(){});
+            TransactionResult<AppAuthReponse> trAppService =JsonHelper.DeserializeComplexObject (response, new TypeReference<TransactionResult<AppAuthReponse>>(){});
             if (trAppService.getCode() == 0)
             {
                 if (appInstanceId == 0)
