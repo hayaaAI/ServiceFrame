@@ -25,7 +25,8 @@ namespace Hayaa.ServicePlatform.Client
         {
             _assembliesData = new ConcurrentDictionary<string, Assembly>();
             _serviceData = new Dictionary<int, Dictionary<string, AppComponent>>();
-            InitData(ConfigHelper.Instance.GetComponentConfig().Components);
+            var config = ConfigHelper.Instance.GetComponentConfig();
+            InitData(config.Components);
 
         }
         private void InitData(List<AppComponent> appServiceConfigs)
