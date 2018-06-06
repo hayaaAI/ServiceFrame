@@ -23,7 +23,7 @@ namespace Hayaa.Redis.Client
             if (redis != null)
             {
               String redisResult=  redis.StringGet(key);
-                if (String.IsNullOrEmpty(redisResult))
+                if (!String.IsNullOrEmpty(redisResult))
                 {
                     data = JsonHelper.Deserialize<T>(redisResult);
                 }

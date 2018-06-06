@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0.1</Version>
     <Authors>HayaaAI</Authors>
     <Company>Hayaa</Company>
     <Product>HayaaAI</Product>
@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.14" />
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.15" />
     <PackageReference Include="Hayaa.Common" Version="1.0.0.5" />
-    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.6" />
+    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.14" />
     <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
   </ItemGroup>
 
