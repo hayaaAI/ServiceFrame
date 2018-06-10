@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  hayaa.appscanservicesite:
+    image: ${DOCKER_REGISTRY}hayaaappscanservicesite
+    build:
+      context: .
+      dockerfile: Hayaa.AppScanServiceSite/Dockerfile
